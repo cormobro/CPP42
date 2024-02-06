@@ -1,4 +1,4 @@
-SRCS = main.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 
 NAME = phonebook
 
@@ -13,7 +13,7 @@ ${NAME} : ${OBJS}
 
 all : ${NAME}
 
-%.o:%.c
+%.o:%.cpp
 		c++ ${FLAGS} -c $< -o $@
 
 clean :
