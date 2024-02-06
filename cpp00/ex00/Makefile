@@ -6,14 +6,14 @@ INC = -I ./
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${SRCS:.cpp=.o}
 
 ${NAME} : ${OBJS}
 			c++ ${FLAGS} ${INC} $(OBJS) -o $(NAME)
 
 all : ${NAME}
 
-%.o:%.c
+%.o:%.cpp
 		c++ ${FLAGS} -c $< -o $@
 
 clean :

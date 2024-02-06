@@ -50,7 +50,7 @@ void PhoneBook::searchContacts() {
 		if (std::getline(std::cin, command) && command != "")
 			break ;
 	}
-	for (int i = 0; i < command.length(); i++)
+	for (unsigned long i = 0; i < command.length(); i++)
 	{
 		if (!isdigit(command[i]))
 		{
