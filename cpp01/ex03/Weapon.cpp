@@ -11,10 +11,10 @@ const std::string&	Weapon::getType(void)
 	return (res);
 }
 
-/*Weapon::~Weapon()
+Weapon::~Weapon()
 {
 	std::cout << "Weapon: " << _type << " has been destroyed." << std::endl;
-}*/
+}
 
 Weapon::Weapon(const Weapon &copy)
 {

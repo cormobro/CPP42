@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-Zombie * zombieHorde(int n, std::string name)
+Zombie * ZombieHorde(int n, std::string name)
 {
 	int	i = 0;
 

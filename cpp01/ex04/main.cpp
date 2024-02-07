@@ -10,7 +10,7 @@ void	replace(std::string name, std::string s1, std::string s2, std::string stack
 	std::ofstream	OutputFile(OutputName);
 
 	i = 0;
-	while (true)
+	while (true && s1 != "")
 	{
 		i = stack.find(s1, i);
 		if (i < 0)

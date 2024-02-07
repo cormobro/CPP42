@@ -1,6 +1,9 @@
-#include <iostream>
-#include <iomanip>
-#include <string>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
+# include <iostream>
+# include <iomanip>
+# include <string>
 
 class Zombie {
 private:
@@ -12,3 +15,8 @@ public:
 	void	announce(void);
 	void	freeZombie(void);
 };
+
+Zombie	* newZombie(std::string name);
+void	randomChump(std::string name);
+
+#endif

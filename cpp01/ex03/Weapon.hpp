@@ -1,6 +1,9 @@
-#include <string>
-#include <iomanip>
-#include <iostream>
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+
+# include <string>
+# include <iomanip>
+# include <iostream>
 
 class Weapon
 {
@@ -11,8 +14,10 @@ class Weapon
 		Weapon(std::string type);
 		Weapon(void);
 		Weapon(const Weapon &copy);
-		//~Weapon();
+		~Weapon();
 		void			setType(std::string newType);
 		const std::string&	getType(void);
 
 };
+
+#endif

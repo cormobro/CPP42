@@ -1,3 +1,6 @@
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
+
 class HumanA
 {
 	private:
@@ -10,3 +13,5 @@ class HumanA
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
 };
+
+#endif

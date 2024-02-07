@@ -1,3 +1,6 @@
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+
 class HumanB
 {
 	private:
@@ -10,3 +13,5 @@ class HumanB
 		HumanB(std::string name);
 		~HumanB();
 };
+
+#endif

@@ -22,5 +22,5 @@ HumanB::HumanB(std::string name): _weapon(NULL)
 
 HumanB::~HumanB()
 {
-	std::cout << "HumanB " << _name << " has been destructed" << std::endl;
+	std::cout << "HumanB " << _name << " has been destroyed" << std::endl;
 }

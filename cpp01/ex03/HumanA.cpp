@@ -11,12 +11,12 @@ void	HumanA::setWeapon(Weapon &weapon)
 	_weapon = weapon;
 }
 
-HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon)
+HumanA::HumanA(std::string name, Weapon &weapon): _weapon(weapon), _name(name)
 {
 	std::cout << "HumanA " << _name << " has been constructed" << std::endl;
 }
 
 HumanA::~HumanA()
 {
-	std::cout << "HumanA " << _name << " has been destructed" << std::endl;
+	std::cout << "HumanA " << _name << " has been destroyed" << std::endl;
 }
