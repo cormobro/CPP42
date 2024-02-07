@@ -13,7 +13,7 @@ ${NAME} : ${OBJS}
 
 all : ${NAME}
 
-%.o:%.c
+%.o:%.cpp
 		c++ ${FLAGS} -c $< -o $@
 
 clean :

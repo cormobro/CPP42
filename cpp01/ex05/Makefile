@@ -1,6 +1,6 @@
-SRCS = main.cpp
+SRCS = main.cpp Harl.cpp
 
-NAME = ex02
+NAME = ex05
 
 INC = -I ./
 
