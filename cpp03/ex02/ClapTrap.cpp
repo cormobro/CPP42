@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(ClapTrap &copy)
 {
-	std::cout << "Copy constructor has been called for " << this->_name << " ClapTrap" << std::endl;
+	std::cout << "Copy constructor has been called for " << copy._name << " ClapTrap" << std::endl;
 	this->_name = copy._name;
 	this->_hitpoints = copy._hitpoints;
 	this->_energy = copy._energy;
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(ClapTrap &copy)
 
 ClapTrap&	ClapTrap::operator = (const ClapTrap &copy)
 {
-	std::cout << "Copy assignment operator overload constructor has been called for " << this->_name << " ClapTrap" << std::endl;
+	std::cout << "Copy assignment operator overload constructor has been called for " << copy._name << " ClapTrap" << std::endl;
 	this->_name = copy._name;
 	this->_hitpoints = copy._hitpoints;
 	this->_energy = copy._energy;
