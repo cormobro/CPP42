@@ -16,6 +16,7 @@ int	main()
 		std::cout << "Grade: " << test.getGrade() << " Name: " << test.getName() << std::endl;
 		overloadCopy.incrementGrade();
 		std::cout << "OverloadOperator: " << overloadCopy.getGrade() << " " << overloadCopy.getName() << std::endl;
+		std::cout << test << std::endl;
 		//Bureaucrat toomuch("Mike", 151);
 		Bureaucrat toolow("George", 0);
 	}

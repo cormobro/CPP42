@@ -1,8 +1,9 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Bureaucrat")
 {
-	std::cout << "Constructor has been called for Bureaucrat" << std::endl;
+	std::cout << "Standard Constructor has been called for Bureaucrat" << std::endl;
 	this->_grade = 150;
 }
 
@@ -76,4 +77,29 @@ std::ostream& operator << (std::ostream& os, const Bureaucrat& bureaucrat)
 {
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return (os);
+}
+
+void	Bureaucrat::signForm(AForm& form) const
+{
+	form.beSigned(*this);
+	if (this->_grade < form.getGradeSigned())
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	else
+		std::cout << this->_name << " couldn't sign " << form.getName() << " because the required grade to sign is " << form.getGradeSigned() << " and the bureaucrat grade is " << this->_grade << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	if (form.getSigned() == true)
+	{
+		if (this->_grade <= form.getGradeExec())
+		{
+			std::cout << "Bureaucrat " << this->_name << " executed " << form.getName() << std::endl;
+			form.execute(*this);
+		}
+		else
+			std::cout << "Bureaucrat " << this->_name << " couldn't execute the form " << form.getName() << std::endl;
+	}
+	else
+		std::cout << "Form " << form.getName() << " is not signed" << std::endl;
 }

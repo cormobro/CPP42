@@ -4,6 +4,8 @@
 # include <iostream>
 # include <exception>
 
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -11,7 +13,7 @@ class Bureaucrat
 		unsigned int		_grade;
 	public:
 		Bureaucrat(void);
-		Bureaucrat(const std::string name, unsigned int grade);
+		Bureaucrat(const std::string name, unsigned int grade);;
 		Bureaucrat(Bureaucrat& copy);
 		Bureaucrat& operator = (const Bureaucrat &copy);
 		~Bureaucrat();
@@ -29,6 +31,7 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
+		void		signForm(Form& form) const;
 };
 
 std::ostream& operator << (std::ostream& os, const Bureaucrat& bureaucrat);
