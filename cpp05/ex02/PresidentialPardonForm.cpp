@@ -18,10 +18,16 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cop
 	this->_target = copy._target;
 }
 
-/*PresidentialPardonForm&	PresidentialPardonForm::operator = (const PresidentialPardonForm &copy)
-  {
-
-  }*/
+PresidentialPardonForm&	PresidentialPardonForm::operator = (const PresidentialPardonForm &copy)
+{
+	std::cout << "PresidentialPardonForm Copy assignment Operator Called "<< std::endl;
+	if (this != &copy)
+	{
+		AForm::operator=(copy);
+		this->_target = copy._target;
+	}
+	return (*this);
+}
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {

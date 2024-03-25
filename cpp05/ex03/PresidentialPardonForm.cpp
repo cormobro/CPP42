@@ -22,6 +22,7 @@ PresidentialPardonForm&	PresidentialPardonForm::operator = (const PresidentialPa
 {
 	if (this != &copy)
 	{
+		AForm::operator=(copy);
 		this->_target = copy._target;
 	}
 	return (*this);

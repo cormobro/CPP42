@@ -37,6 +37,8 @@ AForm*	Intern::makeForm(const std::string name, const std::string target)
 		if (name == this->_forms[i])
 			res = (this->*_makeForm[i])(target);
 	}
+	if (res == NULL)
+		throw UnexistentForm();
 	return (res);
 }
 
@@ -56,4 +58,9 @@ AForm*	Intern::makeShrubberyCreationForm(const std::string target)
 {
 	std::cout << "Intern creates " << target << " shrubbery creation form" << std::endl;
 	return (new ShrubberyCreationForm(target));
+}
+
+const char*	Intern::UnexistentForm::what() const throw()
+{
+	return ("Intern::UnexistentForm");
 }

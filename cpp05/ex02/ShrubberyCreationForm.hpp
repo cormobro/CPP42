@@ -12,7 +12,7 @@ class	ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-		//ShrubberyCreationForm& operator = (const AForm &copy);
+		ShrubberyCreationForm& operator = (const AForm &copy);
 		~ShrubberyCreationForm();
 		void	execute(Bureaucrat const & executor) const;
 };

@@ -22,6 +22,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator = (const RobotomyRequestForm 
 {
 	if (this != &copy)
 	{
+		AForm::operator=(copy);
 		this->_target = copy._target;
 	}
 	return (*this);

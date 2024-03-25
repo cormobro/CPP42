@@ -20,6 +20,11 @@ class	Intern
 		AForm*	makePresidentialPardonForm(const std::string target);
 		AForm*	makeRobotomyRequestForm(const std::string target);
 		AForm*	makeShrubberyCreationForm(const std::string target);
+		class UnexistentForm : std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 #endif
