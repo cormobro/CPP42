@@ -25,24 +25,29 @@ ScalarConverter::~ScalarConverter()
 std::string	isPrintChar(std::string number)
 {
 	int num;
-	try
-	{
-		num = std::stoi(number);
-	}
-	catch (std::out_of_range &e)
-	{
-		return ("NANI?!");
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-		return ("Nan");
-	}
-	char c = static_cast<char>(num);
-	if (std::isprint(c) == 1)
-		return (std::string("'") + c + std::string("'"));
+	if (number.length() == 1 && number[0] && std::isprint(number[0]) == 1)
+		return (std::string("'") + number[0] + std::string("'"));
 	else
-		return ("Non displayable");
+	{
+		try
+		{
+			num = std::stoi(number);
+		}
+		catch (std::out_of_range &e)
+		{
+			return ("NANI?!");
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+			return ("Nan");
+		}
+		char c = static_cast<char>(num);
+		if (std::isprint(c) == 1)
+			return (std::string("'") + c + std::string("'"));
+		else
+			return ("Non displayable");
+	}
 }
 
 std::string	isInt(std::string number)
@@ -62,7 +67,7 @@ std::string	isFloat(std::string number)
 {
 	try
 	{
-		float num = std::stof(number);
+		float num = static_cast<float>(std::stof(number));
 		return (std::to_string(num).substr(0, std::to_string(num).find('.') + 2) + "f");
 	}
 	catch (...)
@@ -75,7 +80,7 @@ std::string	isDouble(std::string number)
 {
 	try
 	{
-		double num = std::stod(number);
+		double num = static_cast<double>(std::stod(number));
 		return (std::to_string(num).substr(0, std::to_string(num).find('.') + 2));
 	}
 	catch (...)
@@ -87,13 +92,15 @@ std::string	isDouble(std::string number)
 void	ScalarConverter::convert(std::string number)
 {
 	try
-	{
-		size_t num;
-		std::stof(number, &num);
-		if ((num != number.length() && num != number.length() - 1) || (num == number.length() - 1 && number[num] != 'f' && number[num] != 'F'))
+	{	if (number.length() != 1)
 		{
-			std::cout << "Not a valid number" << std::endl;
-			return ;
+			size_t num;
+			std::stof(number, &num);
+			if ((num != number.length() && num != number.length() - 1) || (num == number.length() - 1 && number[num] != 'f' && number[num] != 'F'))
+			{
+				std::cout << "Not a valid number" << std::endl;
+				return ;
+			}
 		}
 	}
 	catch (const std::exception &e)

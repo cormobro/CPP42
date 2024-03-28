@@ -25,14 +25,10 @@ int	main( void )
 	identify(*d);
 	identify(d);
 
-	Base *e = NULL;
-	std::cout << "Base e (NULL)" << std::endl;
-	identify(e);
-	identify(*e);
 	delete	a;
 	delete	b;
 	delete	c;
-	delete	d;
+	delete 	d;
 
 	return (0);
 }
