@@ -5,6 +5,7 @@
 # include <algorithm>
 # include <set>
 # include <limits>
+# include <ctime>
 
 class Span
 {
@@ -19,7 +20,13 @@ class Span
 		Span & operator = (const Span & copy);
 		~Span();
 		void		addNumber(int num);
-		template <typename T> void	addNumbers(const typename T::iterator& start, const typename T::iterator& end);
+		template <typename T>
+			void		addNumbers(const typename T::iterator& start, const typename T::iterator& end)
+			{
+				if (std::distance(start, end) + this->_array.size() > this->_size)
+					throw std::length_error( "Length is too long" );
+				this->_array.insert(start, end);
+			}
 		long		shortestSpan();
 		long		longestSpan();
 		unsigned int	getSize() const;

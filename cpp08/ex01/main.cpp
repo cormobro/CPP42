@@ -16,11 +16,11 @@ void	testCopy( void )
 	sp2.addNumber(1);
 	sp2.addNumber(2);
 	std::cout << "sp -> " << sp << std::endl;
-	Span	cp( sp );
-	std::cout << "cp -> " << cp << std::endl;
+	Span	copy( sp );
+	std::cout << "copy -> " << copy << std::endl;
 	std::cout << "sp2 -> " << sp2 << std::endl;
-	cp = sp2;
-	std::cout << "cp -> " << cp << std::endl;
+	copy = sp2;
+	std::cout << "copy -> " << copy << std::endl;
 }
 
 void	testAddNumberOne( void )
@@ -55,15 +55,15 @@ void	testAddNumberTwo( void )
 	for (int i = 0; i < 10; i++)
 		arr.push_back(i);
 
-	std::cout << "Adding: std::vector< int >	arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" << std::endl;
+	std::cout << "arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" << std::endl;
 	std::cout << "sp -> " << sp << std::endl;
-	//sp.addNumbers< std::vector< int > >( arr.begin(), arr.end() );
+	sp.addNumbers<std::vector<int>>(arr.begin(), arr.end());
 	std::cout << "sp -> " << sp << std::endl;
-	std::cout << "Adding: std::vector< int >	arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" << std::endl;
+	std::cout << "arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }" << std::endl;
 	std::cout << "sp2 -> " << sp2 << std::endl;
 	try
 	{
-		sp.addNumbers< std::vector< int > >( arr.begin(), arr.end() );
+		sp.addNumbers<std::vector<int>>(arr.begin(), arr.end());
 	}
 	catch (const std::exception& e)
 	{
@@ -97,15 +97,12 @@ void	testFindSpan( void )
 
 int main( void )
 {
-	std::cout << "TEST [ COPY ]: Constructor and assignment operator" << std::endl;
 	testCopy();
-	std::cout << std::endl;
-	std::cout << "\n\nTEST [ METHOD ]: addNumber( unsigned int n ) -> Add only one number" << std::endl;
+	std::cout << std::endl << "---------------------------" << std::endl;
 	testAddNumberOne();
-	std::cout << "\n\nTEST [ METHOD ]: addNumber( iterator start, iterator end ) -> Add range of iterators" << std::endl;
+	std::cout << std::endl << "---------------------------" << std::endl;
 	testAddNumberTwo();
-	std::cout << std::endl;
-	std::cout << "\n\nTEST [ METHOD ]: shortestSpan( void ) && longestSpan( void ) -> Find out the shortest/longest span between all the numbers stored" << std::endl;
+	std::cout << std::endl << "---------------------------" << std::endl;
 	testFindSpan();
     return ( 0 );
 }

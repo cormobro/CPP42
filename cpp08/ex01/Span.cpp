@@ -43,12 +43,12 @@ void	Span::addNumber(int num)
 	this->_array.insert(num);
 }
 
-template < typename T >
+/*template < typename T >
 void	Span::addNumbers( const typename T::iterator& start, const typename T::iterator& end ) {
 	if (std::distance(start, end) + this->_array.size() > this->_size)
 		throw std::length_error( "Length is too long" );
 	this->_array.insert(start, end);
-}
+}*/
 
 long	Span::shortestSpan()
 {
