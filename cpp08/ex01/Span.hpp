@@ -2,6 +2,9 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <algorithm>
+# include <set>
+# include <limits>
 
 class Span
 {
@@ -11,16 +14,19 @@ class Span
 
 	public:
 		Span(void);
-		Span(const unsigned int n);
-		Span(Span & copy);
+		Span(unsigned int n);
+		Span(const Span & copy);
 		Span & operator = (const Span & copy);
 		~Span();
-		void		addNumber(const int num);
-		void		addNumbers();
-		unsigned int	shortestSpan();
-		unsigned int	longestSpan();
-		unsigned int	getSize();
-		unsigned int	getRealSize();
-}
+		void		addNumber(int num);
+		template <typename T> void	addNumbers(const typename T::iterator& start, const typename T::iterator& end);
+		long		shortestSpan();
+		long		longestSpan();
+		unsigned int	getSize() const;
+		unsigned int	getRealSize() const;
+		int		getNumber(unsigned int i) const;
+};
+
+std::ostream & operator << (std::ostream& o, const Span& span);
 
 #endif
