@@ -7,17 +7,19 @@ template <typename T> class Array {
 	private:
 		T*		_arr;
 		unsigned int	_size;
- 
+
 	public:
 		Array(void)
 		{
 			this->_arr = NULL;
 			this->_size = 0;
+			std::cout << "Default constructor has been called" << std::endl;
 		}
 		Array(const unsigned int size)
 		{
 			this->_arr = new T[size];
 			this->_size = size;
+			std::cout << "Constructor has been called" << std::endl;
 		}
 		Array(Array& copy)
 		{
@@ -39,6 +41,8 @@ template <typename T> class Array {
 		{
 			if (this != &copy)
 			{
+				if (this->_size != 0)
+					delete [] this->_arr;
 				if (copy._arr != NULL)
 				{
 					this->_size = copy.size();
@@ -52,10 +56,12 @@ template <typename T> class Array {
 					this->_size = 0;
 				}
 			}
+			std::cout << "Copy overload operator has been called" << std::endl;
 			return (*this);
 		}
 		~Array()
 		{
+			std::cout << "Destructor has been called" << std::endl;
 			if (this->_size != 0)
 				delete [] this->_arr;
 		}
@@ -65,7 +71,7 @@ template <typename T> class Array {
 				throw std::out_of_range("Exception: Index is out of bound");
 			return (this->_arr[i]);
 		}
-		unsigned int	size()
+		unsigned int	size() const
 		{
 			return (this->_size);
 		}
